@@ -72,35 +72,35 @@ let users = [
   {
     name: "Aarav Khanna",
     contact: "+91 9871200345",
-    pic: "https://i.pinimg.com/736x/89/1d/90/891d90b7b0c6d6df8d7df5d59e91e8e0.jpg",
+    pic: "https://i.pinimg.com/1200x/63/a9/c1/63a9c13c68dd80754b19f7ed3106688b.jpg",
     bio: "Tech geek who spends nights building side projects and startups.",
   },
 
   {
     name: "Kiara Mehta",
     contact: "+91 9786543210",
-    pic: "https://i.pinimg.com/736x/f3/97/0b/f3970b2b0fd77d59bbf46f4a4f2d3f70.jpg",
+    pic: "https://i.pinimg.com/736x/fa/56/cf/fa56cf61c0d08ada88ecc4653077e61b.jpg",
     bio: "Fashion blogger with a love for monochrome aesthetics.",
   },
 
   {
-    name: "Arjun Sethi",
+    name: "Dennis Sethi",
     contact: "+91 9900112233",
-    pic: "https://i.pinimg.com/736x/0c/1b/e4/0c1be4b3f5df8aeb4e4f9fdc2e96d3df.jpg",
+    pic: "https://i.pinimg.com/736x/12/6d/dd/126dddd4dd7941c61b5b0c8dc9e1d789.jpg",
     bio: "Fitness freak balancing gym life with coding marathons.",
   },
 
   {
     name: "Naina Kapoor",
     contact: "+91 9011223344",
-    pic: "https://i.pinimg.com/736x/d7/e1/7d/d7e17d82d52f4e2cb8ffec4cfde4a741.jpg",
+    pic: "https://i.pinimg.com/736x/ff/7c/fc/ff7cfc1632522cb0bf0d52a18fcdc85b.jpg",
     bio: "Minimalist soul who enjoys books, rain, and slow music.",
   },
 
   {
     name: "Kabir Malhotra",
     contact: "+91 9112233445",
-    pic: "https://i.pinimg.com/736x/8b/68/2d/8b682d4cf5e7db9ef4dc2f5f0f7a4a7f.jpg",
+    pic: "https://i.pinimg.com/736x/8e/bd/80/8ebd8038e38187371c934da78b876c85.jpg",
     bio: "Cinematographer chasing stories through lights and shadows.",
   },
 ];
@@ -160,4 +160,33 @@ function showUsers(arr) {
 
 showUsers(users);
 
+let inp = document.querySelector("#searchInput");
+
+inp.addEventListener("input", function(){
+
+    let newUsers = users.filter(function(user){
+
+        return user.name.startsWith(inp.value);
+    })
+    document.querySelector(".cards").innerHTML = "";
+
+    //for no users found
+    if(newUsers.length === 0){
+
+    let msg = document.createElement("h1");
+
+    msg.textContent = "No Users Found";
+
+    msg.style.color = "white";
+    msg.style.textAlign = "center";
+    msg.style.marginTop = "40px";
+    msg.style.fontSize = "32px";
+
+    document.querySelector(".cards").appendChild(msg);
+    }
+    
+    else{
+    showUsers(newUsers);
+    }
+})
 
