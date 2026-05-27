@@ -166,9 +166,11 @@ inp.addEventListener("input", function(){
 
     let newUsers = users.filter(function(user){
 
-        return user.name.startsWith(inp.value);
+        return user.name.toLowerCase().startsWith(inp.value.toLowerCase());
     })
     document.querySelector(".cards").innerHTML = "";
+
+
 
     //for no users found
     if(newUsers.length === 0){
@@ -184,7 +186,7 @@ inp.addEventListener("input", function(){
 
     document.querySelector(".cards").appendChild(msg);
     }
-    
+
     else{
     showUsers(newUsers);
     }
