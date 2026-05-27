@@ -172,7 +172,20 @@ inp.addEventListener("input", function(){
 
 
 
-    //for no users found
+    //for no users found then shifts to includes
+
+    if(newUsers.length === 0){
+
+    newUsers = users.filter(function(user){
+
+        return user.name
+            .toLowerCase()
+            .includes(inp.value.toLowerCase());
+
+    });
+}
+
+    //if still no match then no match found
     if(newUsers.length === 0){
 
     let msg = document.createElement("h1");
